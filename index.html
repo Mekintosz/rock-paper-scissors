@@ -1,0 +1,55 @@
+<script>
+    //function for random choice of rock=0, paper=1 or scissors=3 for computer
+
+
+function getComputerChoice() {
+    let compMove;
+    let randomNum = Math.floor(Math.random() * 3);
+    
+    if (randomNum == 0) {
+    return compMove = "rock";
+    } else if (randomNum == 1) {
+    return    compMove = "paper";
+    } else {
+    return compMove="scissors";
+    }
+
+return compMove;
+};
+
+//playerSelection = prompt("Make your move! Rock, paper or scissors?", "");
+
+function playRound(playerSelection, computerSelection) {
+
+    let pSelection = playerSelection.toLowerCase()
+
+    if (pSelection == computerSelection) {
+        return "draw"
+    } else if (computerSelection == "rock" && pSelection == "paper") {
+        return "You win, paper beats rock"
+    } else if (computerSelection == "rock" && pSelection == "scissors") {
+        return "You lose, rock beats scissors"
+    } else if (computerSelection == "paper" && pSelection == "rock") {
+        return "You lose, paper beats rock"
+    } else if (computerSelection == "paper" && pSelection == "scissors") {
+        return "You win, scissors beat paper"
+    } else if (computerSelection == "scissors" && pSelection == "paper") {
+        return "You lose, scissors beats paper"
+    } else {
+        return "You win, rock beat scissors"
+    }
+
+}
+
+function game() {
+    for (i = 1 ; i <= 5; i++) {
+        console.log(getComputerChoice())
+    }
+
+}
+const playerSelection = "Scissors";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
+
+
+</script>
