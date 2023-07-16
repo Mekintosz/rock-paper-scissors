@@ -17,39 +17,61 @@ function getComputerChoice() {
 return compMove;
 };
 
-//playerSelection = prompt("Make your move! Rock, paper or scissors?", "");
 
 function playRound(playerSelection, computerSelection) {
 
     let pSelection = playerSelection.toLowerCase()
+    let roundResult;
 
     if (pSelection == computerSelection) {
         return "draw"
     } else if (computerSelection == "rock" && pSelection == "paper") {
-        return "You win, paper beats rock"
+        return roundResult = "You win, paper beats rock"
     } else if (computerSelection == "rock" && pSelection == "scissors") {
-        return "You lose, rock beats scissors"
+        return roundResult = "You lose, rock beats scissors"
     } else if (computerSelection == "paper" && pSelection == "rock") {
-        return "You lose, paper beats rock"
+        return roundResult = "You lose, paper beats rock"
     } else if (computerSelection == "paper" && pSelection == "scissors") {
-        return "You win, scissors beat paper"
+        return roundResult = "You win, scissors beat paper"
     } else if (computerSelection == "scissors" && pSelection == "paper") {
-        return "You lose, scissors beats paper"
+        return roundResult = "You lose, scissors beats paper"
     } else {
-        return "You win, rock beat scissors"
+        return roundResult = "You win, rock beat scissors"
+    }
+
+}
+
+function keepScore(roundResult) {
+    let playerScore = 0;
+    let computerScore = 0;
+    if (roundResult == "You win, paper beats rock" 
+        || "You win, scissors beat paper" 
+        || "You win, rock beat scissors") {
+        return playerScore += 1;
+    } else {
+        return computerScore += 1;
+    }
+}
+
+function gameResult(playerScore, computerScore) {
+    if (playerScore < computerScore) {
+        return "You lose, computer wins the GAME."
+    } else {
+        return "You win The GAME, computer loses."
     }
 
 }
 
 function game() {
     for (i = 1 ; i <= 5; i++) {
-        console.log(getComputerChoice())
+        const playerSelection = prompt("Make your move! Rock, paper or scissors?", "");
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
     }
-
+alert(gameResult())
 }
-const playerSelection = "Scissors";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+
+console.log(game());
 
 
 </script>
