@@ -38,7 +38,7 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return roundResult = "You win, rock beat scissors"
     }
-
+return roundResult;
 }
 
 function keepScore(roundResult) {
@@ -48,18 +48,23 @@ function keepScore(roundResult) {
         || "You win, scissors beat paper" 
         || "You win, rock beat scissors") {
         return playerScore += 1;
-    } else {
+    } else if (roundResult == "You lose, rock beats scissors"
+        || "You lose, paper beats rock"
+        || "You lose, scissors beats paper") {
         return computerScore += 1;
+    } else {
+        return
     }
+
+return playerScore, computerScore;
 }
 
 function gameResult(playerScore, computerScore) {
-    if (playerScore < computerScore) {
+    if (playerScore > computerScore) {
         return "You lose, computer wins the GAME."
     } else {
         return "You win The GAME, computer loses."
     }
-
 }
 
 function game() {
@@ -70,6 +75,8 @@ function game() {
     }
 alert(gameResult())
 }
+
+
 
 console.log(game());
 
