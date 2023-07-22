@@ -20,9 +20,10 @@
 
 
 <script>
-        //function for random choice of rock=0, paper=1 or scissors=3 for computer
+     
    
-    function getComputerChoice() {
+    function getComputerChoice() {    //function for random choice of rock=0, paper=1 or scissors=3 for computer
+
         let randomNum = Math.floor(Math.random() * 3);
         
         if (randomNum == 0) {
@@ -37,80 +38,73 @@
     
     function playRound(playerSelection, computerSelection) {
     
-    const disResult = document.querySelector(".result");
-    
         if (playerSelection == computerSelection) {
             roundResult = "draw"
         } else if (computerSelection == "rock" && playerSelection == "paper") {
-            roundResult = "You win, paper beats rock"
+            roundResult = "You win, paper beats rock";
         } else if (computerSelection == "rock" && playerSelection == "scissors") {
-            roundResult = "You lose, rock beats scissors"
+            roundResult = "You lose, rock beats scissors";
         } else if (computerSelection == "paper" && playerSelection == "rock") {
-            roundResult = "You lose, paper beats rock"
+            roundResult = "You lose, paper beats rock";
         } else if (computerSelection == "paper" && playerSelection== "scissors") {
-            roundResult = "You win, scissors beat paper"
+            roundResult = "You win, scissors beat paper";
         } else if (computerSelection == "scissors" && playerSelection == "paper") {
-            roundResult = "You lose, scissors beat paper"
+            roundResult = "You lose, scissors beat paper";
         } else {
-            roundResult = "You win, rock beat scissors"
-        }
-    
-    disResult.textContent = `${roundResult}`;
-    console.log(keepScore(roundResult));
+            roundResult = "You win, rock beat scissors";
+        };
+
+        const disResult = document.querySelector(".result");
+        disResult.textContent = `${roundResult}`;
+        console.log(keepScore(roundResult));
     }
     
-    function keepScore() {
-
-        if (roundResult === "You win, paper beats rock" || "You win, scissors beat paper" || "You win, rock beat scissors") {
+    function keepScore(roundResult) {
+        
+        if (roundResult == "You win, paper beats rock" 
+        || roundResult == "You win, scissors beat paper" 
+        || roundResult == "You win, rock beat scissors") {
             ps += 1;
-        } else if (roundResult === "You lose, rock beats scissors" || "You lose, paper beats rock" || "You lose, scissors beat paper") {
+        } else if (roundResult == "You lose, rock beats scissors" 
+        || roundResult == "You lose, paper beats rock" 
+        || "You lose, scissors beat paper"
+        || "You lose, scissors beat paper") {
             cs += 1;
         };
         compScore.textContent = `${cs}`;
         playScore.textContent = `${ps}`;
 
-    // if (computerScore < 5 && playerScore < 5) {
-        // return 
-    // } else {
-        // console.log(gameResult(playerScore, computerScore));
-    // }
+        if (cs < 5 && ps < 5) {
+            return 
+        } else {
+            console.log(gameResult(ps, cs));
+        }
     
     }; 
     
-    function gameResult(playerScore, computerScore) {
-        if (playerScore < computerScore) {
+    function gameResult(ps, cs) {
+        if (ps < cs) {
             game.textContent = "You lose, computer wins the GAME."
         } else {
             game.textContent = "You win The GAME, computer loses."
         }
     }
     
-    // function game() {
-            // const playerSelection = prompt("Make your move! Rock, paper or scissors?", "");
-            // const computerSelection = getComputerChoice();
-            // console.log(playRound(playerSelection, computerSelection));
-        
-    
     let ps = 0;
     let cs = 0;
     let roundResult = "";
-    const rock1 = document.querySelector("#rock");
-    const paper1 = document.querySelector("#paper");
-    const scissors1 = document.querySelector("#scissors");
+    const rock = document.querySelector("#rock");
+    const paper = document.querySelector("#paper");
+    const scissors = document.querySelector("#scissors");
     const compScore = document.querySelector(".score.comp");
     const playScore = document.querySelector(".score.play");
     compScore.textContent = "0";
     playScore.textContent = "0";
     const game = document.querySelector("#game")
     
-    
-
-    rock1.addEventListener("click", () => playRound("rock", getComputerChoice()));
-    paper1.addEventListener("click", () => playRound("paper", getComputerChoice()));
-    scissors1.addEventListener("click", () => playRound("scissors", getComputerChoice()));
-
-
-    
+    rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
+    paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
+    scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
     
     </script>
 </body>
