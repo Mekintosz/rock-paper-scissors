@@ -1,0 +1,9 @@
+body {
+    display: grid;
+   justify-content: center;
+    background: rgb(43, 112, 151);
+}
+
+.buttons-display {
+    display: flex;
+}
