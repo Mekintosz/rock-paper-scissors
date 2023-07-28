@@ -7,25 +7,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>You are plying rock, paper, scissors against the machine</h1>
-    <div class="butons display">
-        <button id = "rock" class = "button"><img src="./assets/rock.svg"></button>
-        <button id = "paper" class = "button"><img src="./assets/paper.png"></button>
-        <button id = "scissors" class = "button"><img src="./assets/scissors.png"></button>
-    </div>
-    
-    <div>
-        <p>Result: </p> 
+   <div class="bg">
+        <h1>You are plying rock, paper, scissors against the machine</h1>
+        <div class="buttons display">
+            <button id = "rock" class = "button"><img src="./assets/rock.svg"></button>
+            <button id = "paper" class = "button"><img src="./assets/paper.png"></button>
+            <button id = "scissors" class = "button"><img src="./assets/scissors.png"></button>
+        </div>
+        <h2>Whoever reaches the score of <strong>5</strong> first <strong>WINS</strong>.</h2> 
         <div class = "result"></div>
-        <p>Player:</p>
-        <div class = "score play">player: </div>
-        <p>Computer:</p>
-        <div class = "score comp">computer: </div>
-    </div>
-    
-    <div id = "game"></div>
-   
-
+        <div class="results">
+            <p>Your score</p>
+            <div class = "score play"></div>
+            <p>Machines score</p>
+            <div class = "score comp"></div>
+        </div>
+        <p id = "game"></p>
+        <button class="reset">RESET</button>
+        <footer>
+            <p>App made by mekintosz 2023</p>
+        </footer>
+   </div>
+</body>
 
 <script>
      
@@ -62,11 +65,11 @@
             roundResult = "You win, rock beat scissors";
         };
 
-        const disResult = document.querySelector(".result");
+        
         disResult.textContent = `${roundResult}`;
-        console.log(keepScore(roundResult));
+        keepScore(roundResult);
     }
-    
+
     function keepScore(roundResult) {
         
         if (roundResult == "You win, paper beats rock" 
@@ -85,7 +88,7 @@
         if (cs < 5 && ps < 5) {
             return 
         } else {
-            console.log(gameResult(ps, cs));
+            gameResult(ps, cs);
         }
     
     }; 
@@ -98,6 +101,15 @@
         }
     }
     
+    function resetResults() {
+        ps = 0;
+        cs = 0;
+        compScore.textContent = `0`;
+        playScore.textContent = `0`;
+        game.textContent = "";
+        disResult.textContent = ``;
+    }
+
     let ps = 0;
     let cs = 0;
     let roundResult = "";
@@ -109,11 +121,13 @@
     compScore.textContent = "0";
     playScore.textContent = "0";
     const game = document.querySelector("#game")
-    
+    const reset = document.querySelector(".reset");
+    const disResult = document.querySelector(".result");
+
     rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
     paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
     scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
-    
+    reset.addEventListener("click", () => resetResults())
     </script>
 </body>
 </html>

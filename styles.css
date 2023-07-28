@@ -1,9 +1,88 @@
 body {
-    display: grid;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
     background: rgb(43, 112, 151);
+   
 }
 
-.buttons-display {
+.buttons.display {
     display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 800px;
 }
+
+.button {
+    background-color: rgb(43, 112, 151);
+    justify-content: center;
+}
+
+button {
+    border: none;
+}
+
+div.score {
+    font-size: 38px;
+    font-weight: 900;
+}
+
+.results {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+    align-self: center;
+}
+
+.result {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    align-self: center;
+}
+
+ p#game {
+    font-size: 48px;
+    height: 90px;
+    color: darkgoldenrod;
+    align-self: center;
+    justify-content: center;
+    margin: 26px;
+ }
+
+ footer{
+    display: flex;
+    height: 60px;
+    border-top: solid 1px;
+    flex: 1;
+    justify-content: space-around;
+    margin-top: auto;
+ }
+
+ footer>p {
+    align-self: center;
+ }
+
+ h1,
+ h2 {
+    align-self: center;
+ }
+
+ .reset {
+    width: 150px;
+    height: 75px;
+    font-size: 24px;
+    align-self: center;
+    border: solid 2px;
+    margin: 20px;
+    border-radius: 8px;
+ }
+ .bg {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: stretch;
+    align-self: stretch;
+ }
